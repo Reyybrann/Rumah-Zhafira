@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kontak Rumah Berkah Zhafira</title>
+
+  <style>
+    :root {
+      --primary: #6c63ff;
+      --secondary: #4d44db;
+      --dark: #2a2a2a;
+      --light: #f8f9fa;
+      --accent: #ff6584;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition);
+            background-color: rgba(248, 249, 250, 0.9);
+        }
+        
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 10%;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+    .kontak-section {
+      position: relative;
+      top: 30px;
+      padding: 60px 10%;
+      background-color: var(--light);
+    }
+
+    .kontak-section h2 {
+      font-size: 32px;
+      color: var(--primary);
+      border-left: 6px solid var(--accent);
+      padding-left: 15px;
+      margin-bottom: 20px;
+    }
+
+    .kontak-section p {
+      font-size: 17px;
+      color: var(--dark);
+      margin-bottom: 30px;
+    }
+
+    .kontak-form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kontak-form label {
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .kontak-form input,
+    .kontak-form textarea {
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: var(--transition);
+    }
+
+    .kontak-form input:focus,
+    .kontak-form textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+    }
+
+    .kontak-form textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .kontak-form button {
+      background-color: #25d366;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+    }
+
+    .kontak-form button:hover {
+      background-color: #1ebe57;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="kontak-section">
+      <header id="header">
+        <a href="rumah zhafira nguarep.html" class="logo">Rumah Berkah Zhafira</a>
+        <div class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <nav class="nav-links" id="navLinks">
+          <a href="rumah zhafira nguarep.html">Home</a>
+          <a href="isijumatberkah.html">Jumah Berkah</a>
+          <a href="isisantunan.html">Santunan</a>
+          <a href="isikontak.html">Contact</a>
+        </nav>
+        </header>
+      <h2>Hubungi Kami</h2>
+      <p>
+        Jika Anda memiliki pertanyaan, saran, atau ingin berkolaborasi bersama Rumah Berkah Zhafira, silakan isi formulir berikut.
+        Setelah menekan kirim, Anda akan diarahkan ke WhatsApp kami.
+      </p>
+
+      <form class="kontak-form" onsubmit="kirimWhatsApp(event)">
+        <label for="nama">Nama Lengkap</label>
+        <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+
+        <label for="kontak">No. WhatsApp / Email</label>
+        <input type="text" id="kontak" name="kontak" placeholder="Contoh: 081234567890 atau email@gmail.com" required>
+
+        <label for="pesan">Pesan</label>
+        <textarea id="pesan" name="pesan" rows="5" placeholder="Tulis pesan Anda di sini..." required></textarea>
+
+        <button type="submit">Kirim ke WhatsApp</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    function kirimWhatsApp(event) {
+      event.preventDefault();
+
+      const nama = document.getElementById('nama').value;
+      const kontak = document.getElementById('kontak').value;
+      const pesan = document.getElementById('pesan').value;
+
+      const nomorWA = '6287766887013'; 
+      const url = `https://wa.me/${nomorWA}?text=Halo%20Rumah%20Berkah%20Zhafira%2C%0ASaya%20${encodeURIComponent(nama)}%0A(Kontak%3A%20${encodeURIComponent(kontak)})%0A%0A${encodeURIComponent(pesan)}`;
+
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>

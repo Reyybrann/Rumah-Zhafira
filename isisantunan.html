@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kegiatan Santunan Anak Yatim</title>
+
+
+  <style>
+    :root {
+      --primary: #6c63ff;
+      --secondary: #4d44db;
+      --dark: #2a2a2a;
+      --light: #f8f9fa;
+      --accent: #ff6584;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition);
+            background-color: rgba(248, 249, 250, 0.9);
+        }
+        
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 10%;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+    .kegiatan-santunan {
+      position: relative;
+      top: 30px;
+      padding: 60px 10%;
+      background-color: var(--light);
+    }
+
+    .kegiatan-santunan h2 {
+      font-size: 32px;
+      color: var(--primary);
+      margin-bottom: 20px;
+      border-left: 6px solid var(--accent);
+      padding-left: 15px;
+    }
+
+    .kegiatan-santunan p {
+      font-size: 17px;
+      color: var(--dark);
+      margin-bottom: 25px;
+    }
+
+    .galeri-kegiatan {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+
+    .item-kegiatan {
+      background-color: white;
+      border-radius: 15px;
+      padding: 20px;
+      flex: 1 1 300px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .item-kegiatan:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .item-kegiatan img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .item-kegiatan p {
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="kegiatan-santunan">
+      <header id="header">
+        <a href="rumah zhafira nguarep.html" class="logo">Rumah Berkah Zhafira</a>
+        <div class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <nav class="nav-links" id="navLinks">
+          <a href="rumah zhafira nguarep.html">Home</a>
+          <a href="isijumatberkah.html">Jumah Berkah</a>
+          <a href="isisantunan.html">Santunan</a>
+          <a href="isikontak.html">Contact</a>
+        </nav>
+        </header>
+      <h2>Kegiatan Santunan Anak Yatim</h2>
+      <p>
+        Rumah Berkah Zhafira secara rutin mengadakan kegiatan santunan bagi anak-anak yatim dan dhuafa. 
+        Kegiatan ini meliputi pemberian bantuan berupa sembako, uang santunan, perlengkapan sekolah, serta sesi kebersamaan dan edukasi.
+        Dukungan dari para donatur dan relawan sangat membantu terselenggaranya program ini secara berkelanjutan.
+      </p>
+
+      <div class="galeri-kegiatan">
+        <div class="item-kegiatan">
+          <img src="gambar/donasi.jpg" alt="Santunan di Sekolah" />
+          <p>Santunan di SD Al-Ikhlas, 12 Mei 2025</p>
+        </div>
+        <div class="item-kegiatan">
+          <img src="gambar/bagibagisembako.jpg" alt="Pemberian Sembako" />
+          <p>Pemberian paket sembako dan alat tulis</p>
+        </div>
+        <div class="item-kegiatan">
+          <img src="gambar/kidsjoy.jpg" alt="Anak-anak Ceria" />
+          <p>Kegiatan belajar dan bermain bersama</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

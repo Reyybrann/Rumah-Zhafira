@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Jumat Berkah</title>
+
+ 
+  <style>
+    :root {
+      --primary: #6c63ff;
+      --secondary: #4d44db;
+      --dark: #2a2a2a;
+      --light: #f8f9fa;
+      --accent: #ff6584;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition);
+            background-color: rgba(248, 249, 250, 0.9);
+        }
+        
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 10%;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+    .jumat-berkah {
+      position: relative;
+      top: 30px;
+      padding: 60px 10%;
+      background-color: var(--light);
+    }
+
+    .jumat-berkah h2 {
+      font-size: 32px;
+      color: var(--primary);
+      margin-bottom: 20px;
+      border-left: 6px solid var(--accent);
+      padding-left: 15px;
+    }
+
+    .jumat-berkah p {
+      font-size: 17px;
+      color: var(--dark);
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .program-list {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .program-item {
+      background-color: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      flex: 1 1 300px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .program-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .program-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .program-item h3 {
+      font-size: 20px;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .program-item p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .btn-donasi {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 14px 28px;
+      background-color: var(--primary);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 30px;
+      border: 2px solid var(--primary);
+      transition: var(--transition);
+      box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+    }
+
+    .btn-donasi:hover {
+      background-color: transparent;
+      color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(108, 99, 255, 0.3);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="jumat-berkah">
+      <header id="header">
+        <a href="rumah zhafira nguarep.html" class="logo">Rumah Berkah Zhafira</a>
+        <div class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <nav class="nav-links" id="navLinks">
+          <a href="rumah zhafira nguarep.html">Home</a>
+          <a href="isijumatberkah.html">Jumah Berkah</a>
+          <a href="isisantunan.html">Santunan</a>
+          <a href="isikontak.html">Contact</a>
+        </nav>
+        </header>
+      <h2>Program Jumat Berkah</h2>
+      <p>
+        <strong>Jumat Berkah</strong> adalah program berbagi kebaikan setiap hari Jumat berupa pembagian makanan, santunan anak yatim, dan aksi sosial lainnya.
+        Kegiatan ini terbuka untuk siapa saja yang ingin berpartisipasi sebagai donatur maupun relawan. Program Jumat Berkah adalah kegiatan rutin berbagi makanan kepada masyarakat setiap hari Jumat. Kegiatan ini menjadi
+        wujud kepedulian sosial dan upaya menghadirkan keberkahan di hari yang mulia.
+        Dukungan dari para donatur dan relawan menjadikan program ini terus berjalan hingga hari ini. Siapa pun dapat ikut
+        berkontribusi dan menjadi bagian dari kebaikan bersama.
+      </p>
+
+      <div class="program-list">
+        <div class="program-item">
+          <img src="gambar/donasi2.jpg" alt="Pembagian Makanan" />
+          <h3>Pembagian Makanan</h3>
+          <p>Berbagi makanan gratis setiap Jumat siang untuk masyarakat sekitar dan yang membutuhkan.</p>
+        </div>
+
+        <div class="program-item">
+          <img src="gambar/anakyatim2.jpg" alt="Santunan Anak Yatim" />
+          <h3>Santunan Anak Yatim</h3>
+          <p>Memberikan bantuan dan perhatian kepada anak-anak yatim di lingkungan sekitar.</p>
+        </div>
+
+        <div class="program-item">
+          <img src="gambar/volunteer.jpg" alt="Relawan Jumat Berkah" />
+          <h3>Relawan Jumat Berkah</h3>
+          <p>Jadilah relawan kebaikan dan ambil bagian dalam setiap langkah mulia di hari Jumat.</p>
+        </div>
+      </div>
+
+      <a href="isidonasi.html" class="btn-donasi">Gabung Donasi</a>
+    </section>
+  </main>
+</body>
+</html>
