@@ -1,562 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rumah Berkah Zhafira</title>
-    <style>
-        :root {
-            --primary: #6c63ff;
-            --secondary: #4d44db;
-            --dark: #2a2a2a;
-            --light: #f8f9fa;
-            --accent: #ff6584;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            transition: var(--transition);
-            background-color: rgba(248, 249, 250, 0.9);
-        }
-
-        header.scrolled {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            padding: 15px 10%;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            bottom: -5px;
-            left: 0;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 0 10%;
-            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 500px;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero h1 span {
-            color: var(--primary);
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            border: 2px solid var(--primary);
-            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
-        }
-
-        .cta-button:hover {
-            background-color: transparent;
-            color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(108, 99, 255, 0.3);
-        }
-
-        .hero-image {
-            position: absolute;
-            right: 10%;
-            width: 40%;
-            max-width: 600px;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-        }
-
-
-        .services {
-            padding: 100px 10%;
-            background-color: white;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .section-title p {
-            max-width: 600px;
-            margin: 0 auto;
-            color: #666;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background-color: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background-color: rgba(108, 99, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .service-icon i {
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-
-        .projects {
-            padding: 100px 10%;
-            background-color: var(--light);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            height: 300px;
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .project-card:hover img {
-            transform: scale(1.1);
-        }
-
-        .project-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: white;
-            transform: translateY(100%);
-            transition: var(--transition);
-        }
-
-        .project-card:hover .project-info {
-            transform: translateY(0);
-        }
-
-        .project-info h3 {
-            margin-bottom: 10px;
-        }
-
-
-        .contact {
-            padding: 100px 10%;
-            background-color: white;
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-        }
-
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-
-        .contact-info p {
-            margin-bottom: 30px;
-        }
-
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background-color: rgba(108, 99, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .contact-icon i {
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
-
-        .contact-form {
-            background-color: var(--light);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .submit-btn:hover {
-            background-color: var(--secondary);
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 50px 10% 20px;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background-color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        .copyright {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-
-
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
-        }
-
-
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero-image {
-                width: 45%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background-color: white;
-                flex-direction: column;
-                align-items: center;
-                padding: 40px 0;
-                transition: var(--transition);
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 100px;
-            }
-
-            .hero-content {
-                max-width: 100%;
-                margin-bottom: 50px;
-            }
-
-            .hero-image {
-                position: relative;
-                right: auto;
-                width: 80%;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rumah Berkah Zhafira</title>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary: #6c63ff;
+      --secondary: #4d44db;
+      --dark: #2a2a2a;
+      --light: #f8f9fa;
+      --accent: #ff6584;
+      --transition: all 0.3s ease;
+    }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      position: fixed; top: 0; left: 0; width: 100%;
+      padding: 20px 10%;
+      display: flex; justify-content: space-between;
+      align-items: center; z-index: 1000;
+      background-color: rgba(248, 249, 250, 0.9);
+      transition: var(--transition);
+    }
+    header.scrolled {
+      background-color: rgba(255,255,255,0.95);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      padding: 15px 10%;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: var(--transition);
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; width: 0;
+      height: 2px; background: var(--primary);
+      bottom: -5px; left: 0;
+      transition: var(--transition);
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 10%;
+      background: linear-gradient(135deg, rgba(108,99,255,0.1) 0%, rgba(255,255,255,0) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-content {
+      max-width: 500px; z-index: 1;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .hero h1 span {
+      color: var(--primary);
+    }
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      border: 2px solid var(--primary);
+      box-shadow: 0 10px 20px rgba(108,99,255,0.2);
+    }
+    .cta-button:hover {
+      background-color: transparent;
+      color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(108,99,255,0.3);
+    }
+    .hero-image {
+      position: absolute;
+      right: 10%;
+      width: 40%;
+      max-width: 600px;
+      animation: float 6s ease-in-out infinite;
+    }
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+    }
+
+    /* Services */
+    .services {
+      padding: 100px 10%; background-color: white;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .section-title h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .section-title p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: #666;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+      gap: 30px;
+    }
+    .service-card {
+      background-color: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: var(--transition);
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+    .service-icon {
+      width: 60px; height: 60px;
+      background-color: rgba(108,99,255,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .service-icon i {
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 50px 10% 20px;
+      text-align: center;
+    }
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
+    }
+    .social-link {
+      width: 40px; height: 40px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: var(--transition);
+    }
+    .social-link:hover {
+      background-color: var(--primary);
+      transform: translateY(-5px);
+    }
+    .copyright {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Responsif untuk mobile */
+    @media (max-width: 992px) {
+      .hero h1 { font-size: 2.8rem; }
+      .hero-image { width: 45%; }
+    }
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        position: fixed; top: 80px; left: -100%;
+        width: 100%; height: calc(100vh - 80px);
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+        transition: var(--transition);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+      .nav-links.active { left: 0; }
+      .nav-links a {
+        margin: 15px 0; font-size: 1.2rem;
+      }
+      .hero {
+        flex-direction: column; text-align: center;
+        padding-top: 100px;
+      }
+      .hero-content { max-width: 100%; margin-bottom: 50px; }
+      .hero-image {
+        position: relative; right: auto;
+        width: 80%;
+      }
+    }
+    @media (max-width: 576px) {
+      .hero h1 { font-size: 2.2rem; }
+      .section-title h2 { font-size: 2rem; }
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <header id="header">
-        <a href="rumah zhafira nguarep.html" class="logo">Rumah Berkah Zhafira</a>
-        <div class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        <nav class="nav-links" id="navLinks">
-            <a href="index.html">Home</a>
-            <a href="isijumatberkah.html">Jumah Berkah</a>
-            <a href="isisantunan.html">Santunan</a>
-            <a href="isikontak.html">Contact</a>
-        </nav>
-    </header>
+  <header id="header">
+    <a href="index.html" class="logo">Rumah Berkah Zhafira</a>
+    <div class="menu-toggle" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="isijumatberkah.html">Jumah Berkah</a>
+      <a href="isisantunan.html">Santunan</a>
+      <a href="isikontak.html">Contact</a>
+    </nav>
+  </header>
 
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Selamat Datang <span>Rumah Berkah Zhafira</span><br>Mari Berdonasi!</h1>
+      <p>Sedikit rupiahmu akan sangat berdampak untuk mereka.</p>
+      <a href="isidonasi.html" class="cta-button">Donasi</a>
+    </div>
+    <div class="hero-image">
+      <img src="gambar/donasi.jpg" alt="Rumah Zhafira">
+    </div>
+  </section>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Selamat Datang <span>Rumah Berkah Zhafira</span> <br>Mari Berdonasi!</h1>
-            <p>Sedikit rupiahmu akan sangat berdampak untuk mereka.</p>
-            <a href="isidonasi.html" class="cta-button">Donasi</a>
-        </div>
-        <div class="hero-image">
-            <img src="gambar/donasi.jpg" alt="Rumah Zhafira">
-        </div>
-    </section>
+  <section class="services" id="services">
+    <div class="section-title">
+      <h2>Apa itu Rumah Berkah Zhafira?</h2>
+      <p>Jadi, Rumah Berkah Zhafira adalah lembaga donasi untuk orang-orang yang tidak mampu.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-code"></i></div>
+        <h3>Jum'at Berkah</h3>
+        <p>Secara rutin setiap Jumat pembagian makanan bagi yang membutuhkan sebagai bentuk sedekah.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+        <h3>Santunan Anak Yatim</h3>
+        <p>Kami memberikan santunan anak yatim dan pembagian makanan secara mandiri.</p>
+      </div>
+    </div>
+  </section>
 
+  <footer>
+    <div class="footer-content">
+      <div class="social-links">
+        <div class="social-link"><i class="fab fa-facebook-f"></i></div>
+        <div class="social-link"><i class="fab fa-twitter"></i></div>
+        <div class="social-link"><i class="fab fa-instagram"></i></div>
+      </div>
+      <p class="copyright">&copy; 2025 Rumah Berkah Zhafira. All rights reserved.</p>
+    </div>
+  </footer>
 
-    <section class="services" id="services">
-        <div class="section-title">
-            <h2>Apa itu Rumah Berkah Zhafira?</h2>
-            <p>jadi, Rumah Berkah Zhafira itu lembaga Donasi untuk orang - orang tidak mampu.</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <h3>Jum'at Berkah</h3>
-                <p>Secara rutin, setiap hari Jumat dilaksanakan Jumat Berkah berupa pembagian makanan kepada masyarakat
-                    yang membutuhkan
-                    sebagai bentuk sedekah.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-paint-brush"></i>
-                </div>
-                <h3>Santunan Anak Yatim</h3>
-                <p>Pada mulanya Rumah Berkah Zhafira membuat kegiatan awal dilakukan secara mandiri melalui santunan
-                    anak yatim dan pembagian makanan.</p>
-            </div>
-
-            <body class="service-card">
-            </body>
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    window.addEventListener('scroll', () => {
+      document.getElementById('header')
+        .classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+</body>
+</html>
